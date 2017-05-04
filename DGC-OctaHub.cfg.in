@@ -1,0 +1,59 @@
+PART
+{
+	name = DiamondGridContainerOctaHub
+	module = Part
+	author = Bill Currie
+
+	MODEL {
+		model = mystuff/DGC-OctaHub
+		position = 0, 0, 0
+		rotation = 0, 0, 0
+		scale = 1, 1, 1
+	}
+	rescaleFactor = 1.0
+	scale = 1.0
+
+
+	TechRequired = advConstruction
+	entryCost = 8000
+	cost = 1080.61
+	category = Structural
+	subcategory = 0
+	title = DGC-OctaHub-125
+	manufacturer = Kairyuu Shipping
+	description = Works with the tetrahedral hub to form interesting structures.
+
+	// attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
+	attachRules = 1,0,1,1,0
+
+	mass = 0.616
+	dragModelType = default
+	maximum_drag = 0.2
+	minimum_drag = 0.15
+	angularDrag = 2
+	crashTolerance = 8
+	breakingForce = 200
+	breakingTorque = 200
+	maxTemp = 1700
+
+	RESOURCE {
+		name = LiquidFuel
+		amount = 624.6
+		maxAmount = 624.6
+	}
+	RESOURCE {
+		name = Oxidizer
+		amount = 763.4
+		maxAmount = 763.4
+	}
+}
+
+@PART[DiamondGridContainerOctaHub]:NEEDS[modularFuelTanks] {
+	MODULE {
+		name = ModuleFuelTanks
+		volume = 1388
+		type = Default
+		typeAvailable = Default
+		typeAvailable = TalUtility
+	}
+}

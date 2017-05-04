@@ -1,0 +1,59 @@
+PART
+{
+	name = DiamondGridContainerSegment
+	module = Part
+	author = Bill Currie
+
+	MODEL {
+		model = mystuff/DGC-Segment
+		position = 0, 0, 0
+		rotation = 0, 0, 0
+		scale = 1, 1, 1
+	}
+	rescaleFactor = 1.0
+	scale = 1.0
+
+
+	TechRequired = advConstruction
+	entryCost = 3000
+	cost = 360.594
+	category = Structural
+	subcategory = 0
+	title = DGC-Segment-125
+	manufacturer = Kairyuu Shipping
+	description = Get a bunch of Kerbals together and maybe even get some work out of them.
+
+	// attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
+	attachRules = 1,0,1,1,0
+
+	mass = 0.242
+	dragModelType = default
+	maximum_drag = 0.2
+	minimum_drag = 0.15
+	angularDrag = 2
+	crashTolerance = 8
+	breakingForce = 200
+	breakingTorque = 200
+	maxTemp = 1700
+
+	RESOURCE {
+		name = LiquidFuel
+		amount = 182.7
+		maxAmount = 182.7
+	}
+	RESOURCE {
+		name = Oxidizer
+		amount = 223.3
+		maxAmount = 223.3
+	}
+}
+
+@PART[DiamondGridContainerSegment]:NEEDS[modularFuelTanks] {
+	MODULE {
+		name = ModuleFuelTanks
+		volume = 406
+		type = Default
+		typeAvailable = Default
+		typeAvailable = TalUtility
+	}
+}

@@ -1,0 +1,38 @@
+PART
+{
+	name = DiamondGridTrussTetraHub
+	module = Part
+	author = Bill Currie
+
+	MODEL {
+		model = mystuff/DGT-TetraHub
+		position = 0, 0, 0
+		rotation = 0, 0, 0
+		scale = 1, 1, 1
+	}
+	rescaleFactor = 1.0
+	scale = 1.0
+
+
+	TechRequired = advConstruction
+	entryCost = 400
+	cost = 40.92
+	category = Structural
+	subcategory = 0
+	title = DGT-TetraHub-125
+	manufacturer = Kairyuu Shipping
+	description = Works with the octahedral hub to form interesting structures.
+
+	// attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
+	attachRules = 1,0,1,1,0
+
+	mass = 0.062
+	dragModelType = default
+	maximum_drag = 0.2
+	minimum_drag = 0.15
+	angularDrag = 2
+	crashTolerance = 8
+	breakingForce = 200
+	breakingTorque = 200
+	maxTemp = 1700
+}
