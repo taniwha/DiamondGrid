@@ -1,3 +1,10 @@
+values {
+	mass = ${math.floor(7.8 * modelSkinVolume * 1000 + 0.5)/1000}
+	capacity = ${math.floor((modelExtVolume-modelSkinVolume) * 1000)/1000}
+	resourceCapacity = ${math.floor(capacity*200)}
+	LiquidFuel = ${9 * resourceCapacity / 20}
+	Oxidizer = ${11 * resourceCapacity / 20}
+}
 PART
 {
 	name = DiamondGridContainerOctaHub
@@ -17,7 +24,7 @@ PART
 	TechRequired = advConstruction
 	entryCost = 8000
 	cost = 1080.61
-	category = Structural
+	category = FuelTank
 	subcategory = 0
 	title = DGC-OctaHub-125
 	manufacturer = Kairyuu Shipping
@@ -26,7 +33,7 @@ PART
 	// attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
 	attachRules = 1,0,1,1,0
 
-	mass = 0.616
+	mass = ${mass}
 	dragModelType = default
 	maximum_drag = 0.2
 	minimum_drag = 0.15
@@ -38,22 +45,25 @@ PART
 
 	RESOURCE {
 		name = LiquidFuel
-		amount = 624.6
-		maxAmount = 624.6
+		amount = ${LiquidFuel}
+		maxAmount = ${LiquidFuel}
 	}
 	RESOURCE {
 		name = Oxidizer
-		amount = 763.4
-		maxAmount = 763.4
+		amount = ${Oxidizer}
+		maxAmount = ${Oxidizer}
 	}
 }
 
-@PART[DiamondGridContainerOctaHub]:NEEDS[modularFuelTanks] {
+@PART[DiamondGridContainerOctaHub]:NEEDS[ModularStorageContainer] {
 	MODULE {
-		name = ModuleFuelTanks
-		volume = 1388
-		type = Default
-		typeAvailable = Default
-		typeAvailable = TalUtility
+		name = ModuleStorageContainer
+		availableVolume = ${capacity}
+		Container {
+			name = Resource
+			volume = ${capacity}
+			LiquidFuel = ${"%g, %g" % (LiquidFuel, LiquidFuel)}
+			Oxidizer = ${"%g, %g" % (Oxidizer, Oxidizer)}
+		}
 	}
 }

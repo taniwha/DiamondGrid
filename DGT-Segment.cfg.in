@@ -1,3 +1,8 @@
+values {
+	mass = ${math.floor(7.8 * modelSkinVolume * 1000 + 0.5)/1000}
+	capacity = ${math.floor((modelExtVolume-modelSkinVolume) * 1000)/1000}
+	resourceCapacity = ${math.floor(capacity*200)}
+}
 PART
 {
 	name = DiamondGridTrussSegment
@@ -16,7 +21,7 @@ PART
 
 	TechRequired = advConstruction
 	entryCost = 400
-	cost = 46.2
+	cost = ${mass * 600 * 1.1}
 	category = Structural
 	subcategory = 0
 	title = DGT-Segment-125
@@ -26,7 +31,7 @@ PART
 	// attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
 	attachRules = 1,0,1,1,0
 
-	mass = 0.070
+	mass = ${mass}
 	dragModelType = default
 	maximum_drag = 0.2
 	minimum_drag = 0.15
