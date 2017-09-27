@@ -18,6 +18,8 @@ for obj in bpy.data.objects:
             textures.add(tex.name)
 
 for tex in textures:
+    if tex not in bpy.data.images:
+        continue
     image = bpy.data.images[tex]
     name = tex + ".png"
     path = os.path.join(blend_filepath, name)
