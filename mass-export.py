@@ -8,7 +8,7 @@ blend_filepath = bpy.context.blend_data.filepath
 blend_filepath = os.path.dirname(blend_filepath)
 print(blend_filepath)
 for obj in bpy.data.objects:
-    if not obj.parent and obj.children:
+    if not obj.hide_render and not obj.parent and obj.children:
         name = strip_nnn(obj.name)+".mu"
         filepath = os.path.join(blend_filepath, name)
         print(name, filepath)
