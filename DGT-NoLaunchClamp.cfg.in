@@ -1,0 +1,45 @@
+values {
+    mass = ${math.floor(7.8 * modelSkinVolume * 1000 + 0.5)/1000}
+}
+PART {
+    name = DiamondGridTrussNoLaunchClamp
+    module = Part
+    author = Bill Currie
+    rescaleFactor = 1.0
+    scale = 1.0
+    TechRequired = advConstruction
+    entryCost = 360
+    cost = ${mass * 600 * 1.5}
+    category = Structural
+    subcategory = 0
+    title = DGT-NoLaunchClamp
+    manufacturer = Kairyuu Shipping
+    description = Keeps your base from flying away.
+    attachRules = 1,0,1,1,0
+    mass = ${mass}
+    dragModelType = default
+    maximum_drag = 0.2
+    minimum_drag = 0.15
+    angularDrag = 2
+    crashTolerance = 8
+    breakingForce = 200
+    breakingTorque = 200
+    maxTemp = 1700
+    stackSymmetry = 2
+	MODULE {
+		name = CloningLaunchClamp
+		stagingEnabled = false
+		trf_towerPivot_name = DGT-NoLaunchClamp-pivot
+		//stretch is required no matter what
+		trf_towerStretch_name = DGT-NoLaunchClamp-stretch
+		trf_anchor_name = DGT-NoLaunchClamp-ground
+		trf_cloneSource_name = DGT-NoLaunchClamp-towerSegment
+		cloneStep = 0.9375
+	}
+    MODEL {
+        model = mystuff/DGT-NoLaunchClamp
+        position = 0, 0, 0
+        rotation = 0, 0, 0
+        scale = 1, 1, 1
+    }
+}
