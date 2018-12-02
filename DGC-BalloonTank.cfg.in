@@ -4,6 +4,7 @@ values {
 	resourceCapacity = ${math.floor(capacity*200)}
 	LiquidFuel = ${9 * resourceCapacity / 20}
 	Oxidizer = ${11 * resourceCapacity / 20}
+	resourceCost = ${LiquidFuel * 0.8 + Oxidizer * 0.18}
 }
 PART
 {
@@ -23,7 +24,7 @@ PART
 
 	TechRequired = advConstruction
 	entryCost = 8000
-	cost = 1080.61
+	cost = ${mass * 600 * 1.2 + resourceCost}
 	category = FuelTank
 	subcategory = 0
 	title = DGC-BalloonTank-125
@@ -65,5 +66,13 @@ PART
 			LiquidFuel = ${"%g, %g" % (LiquidFuel, LiquidFuel)}
 			Oxidizer = ${"%g, %g" % (Oxidizer, Oxidizer)}
 		}
+	}
+}
+
+@PART[DiamondGridContainerBalloonTank]:NEEDS[modularFuelTanks&!ModularStorageContainer] {
+	MODULE {
+		name = ModuleFuelTanks
+		volume = ${resourceCapacity}
+		type = Default
 	}
 }
