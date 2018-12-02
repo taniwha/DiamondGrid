@@ -43,6 +43,8 @@ PART
 	breakingTorque = 200
 	maxTemp = 1700
 
+	stackSymmetry = 2
+
 	RESOURCE {
 		name = LiquidFuel
 		amount = ${LiquidFuel}
