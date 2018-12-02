@@ -5,7 +5,7 @@ PART
 	author = Bill Currie
 
 	MODEL {
-		model = mystuff/DGH-Adapter
+		model = DiamondGrid/Parts/DGH-Adapter
 		position = 0, 0, 0
 		rotation = 0, 0, 0
 		scale = 1, 1, 1

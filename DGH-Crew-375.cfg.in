@@ -5,7 +5,7 @@ PART
 	author = Bill Currie
 
 	MODEL {
-		model = mystuff/DGH-Crew-375
+		model = DiamondGrid/Parts/DGH-Crew-375
 		position = 0, 0, 0
 		rotation = 0, 0, 0
 		scale = 1, 1, 1

@@ -10,7 +10,7 @@ PART
 	author = Bill Currie
 
 	MODEL {
-		model = mystuff/DGT-Segment
+		model = DiamondGrid/Parts/DGT-Segment
 		position = 0, 0, 0
 		rotation = 0, 0, 0
 		scale = 1, 1, 1

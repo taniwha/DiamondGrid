@@ -37,7 +37,7 @@ PART {
 		cloneStep = 0.9375
 	}
     MODEL {
-        model = mystuff/DGT-NoLaunchClamp
+        model = DiamondGrid/Parts/DGT-NoLaunchClamp
         position = 0, 0, 0
         rotation = 0, 0, 0
         scale = 1, 1, 1

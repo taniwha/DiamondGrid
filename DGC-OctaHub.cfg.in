@@ -12,7 +12,7 @@ PART
 	author = Bill Currie
 
 	MODEL {
-		model = mystuff/DGC-OctaHub
+		model = DiamondGrid/Parts/DGC-OctaHub
 		position = 0, 0, 0
 		rotation = 0, 0, 0
 		scale = 1, 1, 1
