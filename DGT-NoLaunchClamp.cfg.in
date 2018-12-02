@@ -27,7 +27,7 @@ PART {
     maxTemp = 1700
     stackSymmetry = 2
 	MODULE {
-		name = CloningLaunchClamp
+		name = ELExtendingLaunchClamp
 		stagingEnabled = false
 		trf_towerPivot_name = DGT-NoLaunchClamp-pivot
 		//stretch is required no matter what
