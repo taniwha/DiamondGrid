@@ -25,8 +25,5 @@ for tex in textures:
     path = os.path.join(blend_filepath, name)
     print(tex, image.type, path)
     image.filepath_raw = "//" + name
-    #print(dir(image))
-    #print(image.save.__doc__)
-    #print(image.filepath)
     image.packed_files[0].filepath = path
     image.save()
