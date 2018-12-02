@@ -24,7 +24,7 @@ PART
 
 	TechRequired = advConstruction
 	entryCost = 1200
-	cost = ${mass * 600 * 1.2 + resourceCost}
+	cost = ${math.floor((mass * 600 * 1.2 + resourceCost) * 100 + 0.5) / 100}
 	category = FuelTank
 	subcategory = 0
 	title = DGC-TriAdapter

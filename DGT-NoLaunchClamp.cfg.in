@@ -9,7 +9,7 @@ PART {
     scale = 1.0
     TechRequired = advConstruction
     entryCost = 360
-    cost = ${mass * 600 * 1.5}
+    cost = ${math.floor((mass * 600 * 1.5) * 100 + 0.5) / 100}
     category = Structural
     subcategory = 0
     title = DGT-NoLaunchClamp

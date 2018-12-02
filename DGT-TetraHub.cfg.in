@@ -21,7 +21,7 @@ PART
 
 	TechRequired = advConstruction
 	entryCost = 400
-	cost = ${mass * 600 * 1.1}
+	cost = ${math.floor((mass * 600 * 1.1) * 100 + 0.5) / 100}
 	category = Structural
 	subcategory = 0
 	title = DGT-TetraHub-125
