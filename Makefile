@@ -52,7 +52,7 @@ DOC_FILES := \
 	License.txt \
 	README.md
 
-${truss_FILES} : truss.blend ${truss_CFG_IN_FILES}
+${truss_FILES} all: truss.blend ${truss_CFG_IN_FILES}
 	blender -noaudio --background truss.blend -P mass-export.py
 
 .PHONY: version
@@ -66,7 +66,7 @@ info:
 clean:
 	rm -f ${truss_FILES}
 
-install: ${truss_FILES}
+install: all
 	mkdir -p ${PARTSDIR}
 	cp ${truss_FILES} ${PARTSDIR}
 	cp ${DOC_FILES} ${MODGAMEDATA}
