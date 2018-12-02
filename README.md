@@ -16,6 +16,7 @@ Smaller parts:
 * Face centers: 0.9375m from center on all faces for orthogonal parts.
   Non-orthogonal part centers are dictated by geometry and thus are
   irrational. However, all face centers are in-line with the part center.
+* Balloon tank itself is 3.75m long, but 2.8125m between nodes.
 
 Larger parts:
 * Long edge of tri-hex is 2.5m.
@@ -31,3 +32,13 @@ Snapping to the Tetra or Octa hubs works well if the part to be placed is
 first oriented such that its long edge is parallel to the long edge. This
 may mean pitching (W/S) the part 90 degrees then rolling (Q/E) the part
 multiples of 30 degrees (6x shift-Q/E for 30 degrees, 12x for 60).
+
+The balloon tank's nodes are at the ends of the truss. This is so a
+DGT-Segment can be used to join two balloon tanks, a DGT-Adapter can be
+used to cap off the end, or the end of the balloon tank fits nicely in one
+of the hub truss parts.
+
+## Colliders
+All truss parts are fully hollow: a kerbal can walk or fly through the
+parts. Also, a kerbal can walk on the grill of the DGT-Segment, but will
+fall through the short side in a 1g environment.
