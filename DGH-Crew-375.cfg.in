@@ -25,6 +25,7 @@ PART
 
 	// attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
 	attachRules = 1,0,1,1,0
+	bulkheadProfiles = dgsize2
 
 	mass = 3
 	dragModelType = default
