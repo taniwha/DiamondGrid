@@ -53,15 +53,15 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(160,160)">
+     transform="translate(160,160) scale(1.5,1.5)">
     <path
        id="path821"
        style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M -59.613,67.169 H 59.613 L 87.976,18.044 28.363,-85.206 h -56.726 l -59.613,103.25 z m -2.887,5 h 125 L 93.75,18.044 31.25,-90.206 h -62.5 l -62.5,108.25 z"
+       d="M -56.726,62.169 H 56.726 L 82.202,18.044 25.476,-80.206 h -50.952 L -82.202,18.044 z m -5.774,10 h 125 L 93.75,18.044 31.25,-90.206 h -62.5 l -62.5,108.25 z"
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:75px;line-height:6.61458302px;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:bold;font-size:75px;line-height:6.61458302px;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="0"
        y="0"
        id="text818"><tspan
