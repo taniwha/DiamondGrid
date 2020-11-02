@@ -55,26 +55,44 @@ truss_PNG_FILES := \
 
 truss_FILES := ${truss_CFG_FILES} ${truss_MU_FILES} ${truss_PNG_FILES}
 
+habunit_CFG_FILES := \
+	DGH-Crew-375-internal.cfg	\
+	DGH-Crew-375.cfg
+
+habunit_CFG_IN_FILES = $(patsubst %.cfg, %.cfg.in, ${habunit_CFG_FILES})
+
+habunit_MU_FILES := \
+	DGH-Crew-375.mu \
+	$e
+
+habunit_PNG_FILES := \
+	$e
+
+habunit_FILES := ${habunit_CFG_FILES} ${habunit_MU_FILES} ${habunit_PNG_FILES}
+
 DOC_FILES := \
 	License.txt \
 	README.md
 
-all: ${truss_FILES} ${icon_FILES}
+all: ${truss_FILES} ${habunit_FILES} ${icon_FILES}
 
 ${truss_FILES}: truss.blend ${truss_CFG_IN_FILES}
 	blender -noaudio --background truss.blend -P mass-export.py
 
+${habunit_FILES}: truss.blend ${habunit_CFG_IN_FILES}
+	blender -noaudio --background habunit.blend -P mass-export.py
+
 dgsize1_n.png: dgsizeX.svg
-	sed -e 's/X/1/' -e 's/\#000000/\#000000/g' $^ | inkscape --export-width=32 --export-height=32 --export-background='#000000' --export-background-opacity=0 --export-png=$@ /dev/stdin
+	sed -e 's/X/1/' -e 's/\#000000/\#000000/g' $^ | inkscape --export-width=32 --export-height=32 --export-background='#000000' --export-background-opacity=0 --export-type=png -o $@ /dev/stdin
 
 dgsize1_s.png: dgsizeX.svg
-	sed -e 's/X/1/' -e 's/\#000000/\#ffffff/g' $^ | inkscape --export-width=32 --export-height=32 --export-background='#000000' --export-background-opacity=0 --export-png=$@ /dev/stdin
+	sed -e 's/X/1/' -e 's/\#000000/\#ffffff/g' $^ | inkscape --export-width=32 --export-height=32 --export-background='#000000' --export-background-opacity=0 --export-type=png -o $@ /dev/stdin
 
 dgsize2_n.png: dgsizeX.svg
-	sed -e 's/X/2/' -e 's/\#000000/\#000000/g' $^ | inkscape --export-width=32 --export-height=32 --export-background='#000000' --export-background-opacity=0 --export-png=$@ /dev/stdin
+	sed -e 's/X/2/' -e 's/\#000000/\#000000/g' $^ | inkscape --export-width=32 --export-height=32 --export-background='#000000' --export-background-opacity=0 --export-type=png -o $@ /dev/stdin
 
 dgsize2_s.png: dgsizeX.svg
-	sed -e 's/X/2/' -e 's/\#000000/\#ffffff/g' $^ | inkscape --export-width=32 --export-height=32 --export-background='#000000' --export-background-opacity=0 --export-png=$@ /dev/stdin
+	sed -e 's/X/2/' -e 's/\#000000/\#ffffff/g' $^ | inkscape --export-width=32 --export-height=32 --export-background='#000000' --export-background-opacity=0 --export-type=png -o $@ /dev/stdin
 
 .PHONY: version
 version:
@@ -85,7 +103,7 @@ info:
 	@echo "    KSP GameData:   ${GAMEDATA}"
 
 clean:
-	rm -f ${truss_FILES} ${icon_FILES}
+	rm -f ${truss_FILES} ${habunit_FILES} ${icon_FILES}
 
 install: all
 	mkdir -p ${PARTSDIR} ${TEXDIR}
