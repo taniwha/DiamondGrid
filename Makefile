@@ -68,8 +68,8 @@ habunit_MU_FILES := \
 
 habunit_PNG_FILES := \
 	Hab-375-internal.png \
-	Hab-375.png \
 	Hab-375-bump.png \
+	Hab-375-diffuse.png \
 	$e
 
 habunit_FILES := ${habunit_CFG_FILES} ${habunit_MU_FILES} ${habunit_PNG_FILES}
