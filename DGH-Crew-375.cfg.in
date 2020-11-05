@@ -1,6 +1,11 @@
 values {
-	mass = ${math.floor(7.8 * modelSkinVolume * 1000 + 0.5)/1000}
-	//mass = ${math.floor(7.8 * (modelExtVolume - (volumes['Storage'][1] + volumes['HabSpace'][1])) * 1000 + 0.5)/1000}
+	shell = ${modelSkinVolume}
+	displacement = ${modelExtVolume}
+	storage = ${volumes['Storage'][1]}
+	habspace = ${volumes['HabSpace'][1]}
+	enclosed = ${modelExtVolume - modelSkinVolume}
+	insulation = ${enclosed - (storage + habspace)}
+	mass = ${math.floor((7.8 * shell + 0.1 * insulation) * 1000 + 0.5)/1000}
 	capacity = ${math.floor(volumes['Storage'][1] * 1000)/1000}
 	resourceCapacity = ${math.floor(capacity*200)}
 	LiquidFuel = ${9 * resourceCapacity / 20}
