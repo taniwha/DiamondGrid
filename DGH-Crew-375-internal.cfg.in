@@ -1,3 +1,7 @@
 INTERNAL
 {
+	name = DGH-Crew-375-internal
+	MODEL {
+		model = ${f"DiamondGrid/Parts/{model}"}
+	}
 }

@@ -62,10 +62,14 @@ habunit_CFG_FILES := \
 habunit_CFG_IN_FILES = $(patsubst %.cfg, %.cfg.in, ${habunit_CFG_FILES})
 
 habunit_MU_FILES := \
+	DGH-Crew-375-internal.mu \
 	DGH-Crew-375.mu \
 	$e
 
 habunit_PNG_FILES := \
+	Hab-375-internal.png \
+	Hab-375.png \
+	Hab-375-bump.png \
 	$e
 
 habunit_FILES := ${habunit_CFG_FILES} ${habunit_MU_FILES} ${habunit_PNG_FILES}
@@ -79,7 +83,7 @@ all: ${truss_FILES} ${habunit_FILES} ${icon_FILES}
 ${truss_FILES}: truss.blend ${truss_CFG_IN_FILES}
 	blender -noaudio --background truss.blend -P mass-export.py
 
-${habunit_FILES}: truss.blend ${habunit_CFG_IN_FILES}
+${habunit_FILES}: habunit.blend ${habunit_CFG_IN_FILES}
 	blender -noaudio --background habunit.blend -P mass-export.py
 
 dgsize1_n.png: dgsizeX.svg
@@ -110,6 +114,7 @@ install: all
 	cp BulkheadProfiles.cfg ${MODGAMEDATA}
 	cp ${icon_FILES} ${TEXDIR}
 	cp ${truss_FILES} ${PARTSDIR}
+	cp ${habunit_FILES} ${PARTSDIR}
 	cp ${DOC_FILES} ${MODGAMEDATA}
 
 .PHONY: all clean install
