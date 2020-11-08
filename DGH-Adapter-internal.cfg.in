@@ -1,0 +1,7 @@
+INTERNAL
+{
+	name = ${model}
+	MODEL {
+		model = ${f"DiamondGrid/Parts/{model}"}
+	}
+}

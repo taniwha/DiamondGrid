@@ -56,18 +56,26 @@ truss_PNG_FILES := \
 truss_FILES := ${truss_CFG_FILES} ${truss_MU_FILES} ${truss_PNG_FILES}
 
 habunit_CFG_FILES := \
+	DGH-Adapter-internal.cfg	\
+	DGH-Adapter.cfg			\
 	DGH-Crew-375-internal.cfg	\
-	DGH-Crew-375.cfg
+	DGH-Crew-375.cfg			\
+	$e
 
 habunit_CFG_IN_FILES = $(patsubst %.cfg, %.cfg.in, ${habunit_CFG_FILES})
 
 habunit_MU_FILES := \
+	DGH-Adapter-internal.mu \
+	DGH-Adapter.mu \
 	DGH-Crew-375-internal.mu \
 	DGH-Crew-375.mu \
 	$e
 
 habunit_PNG_FILES := \
+	Hab-Adapter-bump.png \
+	Hab-Adapter-diffuse.png \
 	Hab-375-internal.png \
+	Hab-375-internal-bump.png \
 	Hab-375-bump.png \
 	Hab-375-diffuse.png \
 	$e

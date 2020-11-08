@@ -1,16 +1,23 @@
 values {
-	shell = ${modelSkinVolume}
-	displacement = ${modelExtVolume}
+	trunc = ${lambda x, n = 0: math.floor(x * 10**n) / 10**n}
+	displacement = ${volumes['Displacement'][1]}
+	skin = ${volumes['HabSkin'][0]}
 	storage = ${volumes['Storage'][1]}
 	habspace = ${volumes['HabSpace'][1]}
-	enclosed = ${modelExtVolume - modelSkinVolume}
-	insulation = ${enclosed - (storage + habspace)}
-	mass = ${math.floor((7.8 * shell + 0.1 * insulation) * 1000 + 0.5)/1000}
-	capacity = ${math.floor(volumes['Storage'][1] * 1000)/1000}
-	resourceCapacity = ${math.floor(capacity*200)}
+	structure = ${volumes['HabStructure'][1]}
+	shell = ${displacement - (habspace + storage)}
+	shield = ${shell}
+	structure_mass = ${(7.8 * 0.075 + 0.95 * 0.925) * structure}
+	shield_mass = ${7.8 * skin + 0.95 * (shell - skin)}
+	mass = ${round(structure_mass + shield_mass, 3)}
+	capacity = ${trunc(storage, 3)}
+	resourceCapacity = ${trunc(capacity*200)}
 	LiquidFuel = ${9 * resourceCapacity / 20}
 	Oxidizer = ${11 * resourceCapacity / 20}
 	resourceCost = ${LiquidFuel * 0.8 + Oxidizer * 0.18}
+	output = ${print(f"disp:{displacement} skin:{skin} storage:{storage} hab:{habspace} shell:{shell} structure:{structure}")}
+	output = ${print(f"shield:{shield} mass:{mass} capacity:{capacity} resourceCapacity:{resourceCapacity}")}
+	output = ${print(f"fun:{volumes['HabSkin'][1]} structure:{structure_mass} shield:{shield_mass}")}
 }
 PART
 {
