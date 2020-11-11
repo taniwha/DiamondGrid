@@ -72,7 +72,7 @@ PART
 	}
 }
 
-@PART[DiamondGridContainerTetraHub]:NEEDS[ModularStorageContainer] {
+@PART[DiamondGridHabCrew375]:NEEDS[ModularStorageContainer] {
 	MODULE {
 		name = ModuleStorageContainer
 		availableVolume = ${capacity}
@@ -85,7 +85,7 @@ PART
 	}
 }
 
-@PART[DiamondGridContainerTetraHub]:NEEDS[modularFuelTanks&!ModularStorageContainer] {
+@PART[DiamondGridHabCrew375]:NEEDS[modularFuelTanks&!ModularStorageContainer] {
 	MODULE {
 		name = ModuleFuelTanks
 		volume = ${resourceCapacity}
