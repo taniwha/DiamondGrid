@@ -1,0 +1,114 @@
+values {
+	trunc = ${lambda x, n = 0: math.floor(x * 10**n) / 10**n}
+	displacement = ${volumes['Displacement'][1]}
+	skin = ${volumes['HabSkin'][0]}
+	storage = ${volumes['Storage'][1]}
+	habspace = ${volumes['HabSpace'][1]}
+	structure = ${0}
+	shell = ${displacement - (habspace + structure + storage)}
+	shield = ${shell}
+	structure_mass = ${(7.8 * 0.075 + 0.95 * 0.925) * structure}
+	shield_mass = ${7.8 * skin + 0.95 * (shell - skin)}
+	mass = ${round(structure_mass + shield_mass, 3)}
+	capacity = ${trunc(storage, 3)}
+	resourceCapacity = ${trunc(capacity*200)}
+	LiquidFuel = ${9 * resourceCapacity / 20}
+	Oxidizer = ${11 * resourceCapacity / 20}
+	resourceCost = ${LiquidFuel * 0.8 + Oxidizer * 0.18}
+	output = ${print(f"disp:{displacement} skin:{skin} storage:{storage} hab:{habspace} shell:{shell} structure:{structure}")}
+	output = ${print(f"shield:{shield} mass:{mass} capacity:{capacity} resourceCapacity:{resourceCapacity}")}
+	output = ${print(f"fun:{volumes['HabSkin'][1]} structure:{structure_mass} shield:{shield_mass}")}
+}
+PART
+{
+	name = DiamondGridHabDock
+	module = Part
+	author = Bill Currie
+
+	MODEL {
+		model = ${f"DiamondGrid/Parts/{model}"}
+		position = 0, 0, 0
+		rotation = 0, 0, 0
+		scale = 1, 1, 1
+	}
+	rescaleFactor = 1.0
+	scale = 1.0
+
+
+	TechRequired = advConstruction
+	entryCost = 8000
+	cost = ${math.floor((mass * 600 * 1.2 + resourceCost) * 100 + 0.5) / 100}
+	category = Structural
+	subcategory = 0
+	title = ${model}
+	manufacturer = Kairyuu Shipping
+	description = Luxury crew can.
+
+	// attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
+	attachRules = 1,0,1,1,0
+	bulkheadProfiles = dgsize1
+
+	mass = ${mass}
+	dragModelType = default
+	maximum_drag = 0.2
+	minimum_drag = 0.15
+	angularDrag = 2
+	crashTolerance = 8
+	breakingForce = 200
+	breakingTorque = 200
+	maxTemp = 1700
+
+	CrewCapacity = 1
+
+	MODULE {
+		name = ModuleDockingNode
+		deployAnimationController = 1
+		nodeType = size0
+		controlTransformName = dockingNode
+		staged = false
+		stagingEnabled = false
+	}
+	MODULE {
+		name = ModuleAnimateGeneric
+		animationName = DockDeploy
+		startEventGUIName = #autoLOC_502069 //#autoLOC_502069 = Open
+		endEventGUIName = #autoLOC_502051 //#autoLOC_502051 = Close
+		actionGUIName = #autoLOC_502068 //#autoLOC_502068 = Toggle
+		allowDeployLimit = true
+		revClampDirection = true
+		revClampSpeed =     false
+		revClampPercent =   false
+	}
+
+	RESOURCE {
+		name = LiquidFuel
+		amount = ${LiquidFuel}
+		maxAmount = ${LiquidFuel}
+	}
+	RESOURCE {
+		name = Oxidizer
+		amount = ${Oxidizer}
+		maxAmount = ${Oxidizer}
+	}
+}
+
+@PART[DiamondGridHabDock]:NEEDS[ModularStorageContainer] {
+	MODULE {
+		name = ModuleStorageContainer
+		availableVolume = ${capacity}
+		Container {
+			name = Resource
+			volume = ${capacity}
+			LiquidFuel = ${"%g, %g" % (LiquidFuel, LiquidFuel)}
+			Oxidizer = ${"%g, %g" % (Oxidizer, Oxidizer)}
+		}
+	}
+}
+
+@PART[DiamondGridHabDock]:NEEDS[modularFuelTanks&!ModularStorageContainer] {
+	MODULE {
+		name = ModuleFuelTanks
+		volume = ${resourceCapacity}
+		type = Default
+	}
+}
