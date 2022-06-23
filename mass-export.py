@@ -16,7 +16,7 @@ textures = set()
 
 blend_filepath = bpy.context.blend_data.filepath
 blend_filepath = os.path.dirname(blend_filepath)
-print(blend_filepath)
+#print(blend_filepath)
 collections = enable_collections()
 try:
     for obj in bpy.data.objects:
