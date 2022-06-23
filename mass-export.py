@@ -34,6 +34,10 @@ try:
         mu = export_object (obj, filepath)
         if mu.internals:
             object_queue.extend(mu.internals)
+        if mu.models:
+            object_queue.extend([m[1] for m in mu.models])
+        #if mu.props:
+        #    object_queue.extend([p[1] for p in mu.props])
         for m in mu.messages:
             print(m)
         for tex in mu.textures:

@@ -35,6 +35,7 @@ truss_MU_FILES := \
 	Cabin.mu				\
 	Hatch.mu				\
 	Hatch-Internal.mu		\
+	Ladder.mu				\
 	DGC-Adapter.mu			\
 	DGC-BalloonTank.mu		\
 	DGC-OctaHub.mu			\
