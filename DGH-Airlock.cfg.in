@@ -15,9 +15,9 @@ values {
 	LiquidFuel = ${9 * resourceCapacity / 20}
 	Oxidizer = ${11 * resourceCapacity / 20}
 	resourceCost = ${LiquidFuel * 0.8 + Oxidizer * 0.18}
-	output = ${print(f"disp:{displacement} skin:{skin} storage:{storage} hab:{habspace} shell:{shell} structure:{structure}")}
-	output = ${print(f"shield:{shield} mass:{mass} capacity:{capacity} resourceCapacity:{resourceCapacity}")}
-	output = ${print(f"fun:{volumes['HabSkin'][1]} structure:{structure_mass} shield:{shield_mass}")}
+	//output = ${print(f"disp:{displacement} skin:{skin} storage:{storage} hab:{habspace} shell:{shell} structure:{structure}")}
+	//output = ${print(f"shield:{shield} mass:{mass} capacity:{capacity} resourceCapacity:{resourceCapacity}")}
+	//output = ${print(f"fun:{volumes['HabSkin'][1]} structure:{structure_mass} shield:{shield_mass}")}
 }
 PART
 {

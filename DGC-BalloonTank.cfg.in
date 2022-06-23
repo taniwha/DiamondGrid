@@ -5,6 +5,8 @@ values {
 	LiquidFuel = ${9 * resourceCapacity / 20}
 	Oxidizer = ${11 * resourceCapacity / 20}
 	resourceCost = ${LiquidFuel * 0.8 + Oxidizer * 0.18}
+	//output = ${print(f"modelSkinVolume:{modelSkinVolume} modelExtVolume:{modelExtVolume}")}
+	//output = ${print(f"mass:{mass} capacity:{capacity} resourceCapacity:{resourceCapacity}")}
 }
 PART
 {
