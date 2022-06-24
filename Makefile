@@ -19,7 +19,9 @@ truss_CFG_FILES := \
 	DGC-Segment.cfg			\
 	DGC-TetraHub.cfg		\
 	DGC-TriAdapter.cfg		\
+	DGE-SinterOven.cfg		\
 	DGT-Adapter.cfg			\
+	DGT-Adapter250.cfg		\
 	DGT-NoLaunchClamp.cfg	\
 	DGT-OctaHub.cfg			\
 	DGT-QuadHub.cfg			\
@@ -37,7 +39,9 @@ truss_MU_FILES := \
 	DGC-Segment.mu			\
 	DGC-TetraHub.mu			\
 	DGC-TriAdapter.mu		\
+	DGE-SinterOven.mu		\
 	DGT-Adapter.mu			\
+	DGT-Adapter250.mu		\
 	DGT-NoLaunchClamp.mu	\
 	DGT-OctaHub.mu			\
 	DGT-QuadHub.mu			\

@@ -1,0 +1,45 @@
+values {
+	volume = ${modelSkinVolume - volumes['Chamber'][1]}
+    mass = ${math.floor(7.8 * volume * 1000 + 0.5)/1000}
+}
+PART {
+    name = DiamondGridTrussSinterOven
+    module = Part
+    author = Bill Currie
+    rescaleFactor = 1.0
+    scale = 1.0
+    TechRequired = nanolathing
+    entryCost = 360
+    cost = ${math.floor((mass * 600 * 1.5) * 100 + 0.5) / 100}
+    category = Utility
+    subcategory = 0
+    title = DGT-SinterOven "Sintel"
+    manufacturer = Kairyuu Shipping
+    description = Keeps your base from flying away.
+    attachRules = 1,0,1,1,0
+	bulkheadProfiles = size0
+    mass = ${mass}
+    dragModelType = default
+    maximum_drag = 0.2
+    minimum_drag = 0.15
+    angularDrag = 2
+    crashTolerance = 8
+    breakingForce = 200
+    breakingTorque = 200
+    maxTemp = 1700
+	MODULE {
+		name = ELConverter
+		ConverterName = Rocket Parts Bakery
+		EVARange = 3
+		StartActionName = Start Oven
+		StopartActionName = Stop Oven
+		ConverterRecipe = ScrapSinter
+		Rate = 0.01
+	}
+    MODEL {
+        model = ${f"DiamondGrid/Parts/{model}"}
+        position = 0, 0, 0
+        rotation = 0, 0, 0
+        scale = 1, 1, 1
+    }
+}

@@ -1,0 +1,44 @@
+values {
+	mass = ${math.floor(7.8 * modelSkinVolume * 1000 + 0.5)/1000}
+	capacity = ${math.floor((modelExtVolume-modelSkinVolume) * 1000)/1000}
+	resourceCapacity = ${math.floor(capacity*200)}
+}
+PART
+{
+	name = DiamondGridTrussAdapter250
+	module = Part
+	author = Bill Currie
+
+	MODEL {
+		model = DiamondGrid/Parts/DGT-Adapter250
+		position = 0, 0, 0
+		rotation = 0, 0, 0
+		scale = 1, 1, 1
+	}
+	rescaleFactor = 1.0
+	scale = 1.0
+
+
+	TechRequired = advConstruction
+	entryCost = 360
+	cost = ${math.floor((mass * 600 * 1.1) * 100 + 0.5) / 100}
+	category = Structural
+	subcategory = 0
+	title = DGT-Adapter-250
+	manufacturer = Kairyuu Shipping
+	description = Get a bunch of Kerbals together and maybe even get some work out of them.
+
+	// attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
+	attachRules = 1,0,1,1,0
+	bulkheadProfiles = dgsize1, size1
+
+	mass = ${mass}
+	dragModelType = default
+	maximum_drag = 0.2
+	minimum_drag = 0.15
+	angularDrag = 2
+	crashTolerance = 8
+	breakingForce = 200
+	breakingTorque = 200
+	maxTemp = 1700
+}
