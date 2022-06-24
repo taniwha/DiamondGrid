@@ -31,11 +31,6 @@ truss_CFG_FILES := \
 truss_CFG_IN_FILES = $(patsubst %.cfg, %.cfg.in, ${truss_CFG_FILES})
 
 truss_MU_FILES := \
-	Airlock-Internal.mu		\
-	Cabin.mu				\
-	Hatch.mu				\
-	Hatch-Internal.mu		\
-	Ladder.mu				\
 	DGC-Adapter.mu			\
 	DGC-BalloonTank.mu		\
 	DGC-OctaHub.mu			\
@@ -74,6 +69,11 @@ habunit_CFG_FILES := \
 habunit_CFG_IN_FILES = $(patsubst %.cfg, %.cfg.in, ${habunit_CFG_FILES})
 
 habunit_MU_FILES := \
+	Airlock-Internal.mu		\
+	Cabin.mu				\
+	Hatch.mu				\
+	Hatch-Internal.mu		\
+	Ladder.mu				\
 	DGH-Adapter-internal.mu \
 	DGH-Adapter.mu \
 	DGH-Airlock-internal.mu \
