@@ -14,6 +14,10 @@ icon_FILES := \
 
 truss_CFG_FILES := \
 	DGC-Adapter.cfg			\
+	DGC-Adapter1875.cfg		\
+	DGC-Adapter250.cfg		\
+	DGC-Adapter250r.cfg		\
+	DGC-Adapter375.cfg		\
 	DGC-BalloonTank.cfg		\
 	DGC-OctaHub.cfg			\
 	DGC-Segment.cfg			\
@@ -21,7 +25,10 @@ truss_CFG_FILES := \
 	DGC-TriAdapter.cfg		\
 	DGE-SinterOven.cfg		\
 	DGT-Adapter.cfg			\
+	DGT-Adapter1875.cfg		\
 	DGT-Adapter250.cfg		\
+	DGT-Adapter250r.cfg		\
+	DGT-Adapter375.cfg		\
 	DGT-NoLaunchClamp.cfg	\
 	DGT-OctaHub.cfg			\
 	DGT-QuadHub.cfg			\
@@ -34,6 +41,10 @@ truss_CFG_IN_FILES = $(patsubst %.cfg, %.cfg.in, ${truss_CFG_FILES})
 
 truss_MU_FILES := \
 	DGC-Adapter.mu			\
+	DGC-Adapter1875.mu		\
+	DGC-Adapter250.mu		\
+	DGC-Adapter250r.mu		\
+	DGC-Adapter375.mu		\
 	DGC-BalloonTank.mu		\
 	DGC-OctaHub.mu			\
 	DGC-Segment.mu			\
@@ -41,7 +52,10 @@ truss_MU_FILES := \
 	DGC-TriAdapter.mu		\
 	DGE-SinterOven.mu		\
 	DGT-Adapter.mu			\
+	DGT-Adapter1875.mu		\
 	DGT-Adapter250.mu		\
+	DGT-Adapter250r.mu		\
+	DGT-Adapter375.mu		\
 	DGT-NoLaunchClamp.mu	\
 	DGT-OctaHub.mu			\
 	DGT-QuadHub.mu			\
@@ -53,7 +67,11 @@ truss_MU_FILES := \
 truss_PNG_FILES := \
 	CapsuleTank.png	\
 	Container.png	\
+	Container-bump.png	\
 	Container2.png	\
+	Container2-bump.png	\
+	Container3.png	\
+	Container3-bump.png	\
 	Sphere.png		\
 	Structural.png
 
