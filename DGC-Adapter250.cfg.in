@@ -57,7 +57,7 @@ PART
 	}
 }
 
-@PART[DiamondGridContainerAdapter]:NEEDS[ModularStorageContainer] {
+@PART[DiamondGridContainerAdapter250]:NEEDS[ModularStorageContainer] {
 	MODULE {
 		name = ModuleStorageContainer
 		availableVolume = ${capacity}
@@ -70,7 +70,7 @@ PART
 	}
 }
 
-@PART[DiamondGridContainerAdapter]:NEEDS[modularFuelTanks&!ModularStorageContainer] {
+@PART[DiamondGridContainerAdapter250]:NEEDS[modularFuelTanks&!ModularStorageContainer] {
 	MODULE {
 		name = ModuleFuelTanks
 		volume = ${resourceCapacity}
