@@ -1,0 +1,79 @@
+values {
+	trunc = ${lambda x, n = 0: math.floor(x * 10**n) / 10**n}
+	displacement = ${volumes['Displacement'][1]}
+	skin = ${volumes['HabSkin'][0]}
+	storage = ${volumes['Storage'][1]}
+	habspace = ${volumes['HabSpace'][1]}
+	structure = ${volumes['HabStructure'][1]}
+	shell = ${displacement - (habspace + structure + storage)}
+	shield = ${shell}
+	structure_mass = ${(7.8 * 0.075 + 0.95 * 0.925) * structure}
+	shield_mass = ${7.8 * skin + 0.95 * (shell - skin)}
+	mass = ${round(structure_mass + shield_mass, 3)}
+	capacity = ${trunc(storage, 3)}
+	resourceCapacity = ${trunc(capacity*200)}
+	LiquidFuel = ${9 * resourceCapacity / 20}
+	Oxidizer = ${11 * resourceCapacity / 20}
+	resourceCost = ${LiquidFuel * 0.8 + Oxidizer * 0.18}
+	output = ${print(f"disp:{displacement} skin:{skin} storage:{storage} hab:{habspace} shell:{shell} structure:{structure}")}
+	output = ${print(f"shield:{shield} mass:{mass} capacity:{capacity} resourceCapacity:{resourceCapacity}")}
+	output = ${print(f"fun:{volumes['HabSkin'][1]} structure:{structure_mass} shield:{shield_mass}")}
+}
+PART
+{
+	name = DiamondGridHabAdapter125
+	module = Part
+	author = Bill Currie
+
+	MODEL {
+		model = ${f"DiamondGrid/Parts/{model}"}
+		position = 0, 0, 0
+		rotation = 0, 0, 0
+		scale = 1, 1, 1
+	}
+	rescaleFactor = 1.0
+	scale = 1.0
+
+
+	TechRequired = advConstruction
+	entryCost = 8000
+	cost = ${math.floor((mass * 600 * 1.2 + resourceCost) * 100 + 0.5) / 100}
+	category = Structural
+	subcategory = 0
+	title = ${model}
+	manufacturer = Kairyuu Shipping
+	description = Luxury crew can.
+
+	// attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
+	attachRules = 1,0,1,1,0
+	bulkheadProfiles = dgsize1, size1
+
+	mass = ${mass}
+	dragModelType = default
+	maximum_drag = 0.2
+	minimum_drag = 0.15
+	angularDrag = 2
+	crashTolerance = 8
+	breakingForce = 200
+	breakingTorque = 200
+	maxTemp = 1700
+
+	CrewCapacity = 1
+}
+
+@PART[DiamondGridHabAdapter125]:NEEDS[KIS] {
+	MODULE {
+		name = ModuleKISInventory
+		maxVolume = ${int(capacity * 1000)}
+		externalAccess = true
+		internalAccess = true
+		slotsX = 4
+		slotsY = 4
+		slotSize = 50
+		itemIconResolution = 128
+		selfIconResolution = 128
+		openSndPath = KIS/Sounds/containerOpen
+		closeSndPath = KIS/Sounds/containerClose
+		defaultMoveSndPath = KIS/Sounds/itemMove
+	}
+}

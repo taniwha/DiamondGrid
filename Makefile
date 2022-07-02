@@ -80,6 +80,8 @@ truss_FILES := ${truss_CFG_FILES} ${truss_MU_FILES} ${truss_PNG_FILES}
 habunit_CFG_FILES := \
 	DGH-Adapter-internal.cfg	\
 	DGH-Adapter.cfg			\
+	DGH-Adapter-125-internal.cfg	\
+	DGH-Adapter-125.cfg			\
 	DGH-Airlock-internal.cfg	\
 	DGH-Airlock.cfg			\
 	DGH-Crew-375-internal.cfg	\
@@ -98,6 +100,8 @@ habunit_MU_FILES := \
 	Ladder.mu				\
 	DGH-Adapter-internal.mu \
 	DGH-Adapter.mu \
+	DGH-Adapter-125-internal.mu \
+	DGH-Adapter-125.mu \
 	DGH-Airlock-internal.mu \
 	DGH-Airlock.mu \
 	DGH-Crew-375-internal.mu \
