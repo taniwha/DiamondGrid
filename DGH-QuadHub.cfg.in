@@ -15,13 +15,13 @@ values {
 	LiquidFuel = ${9 * resourceCapacity / 20}
 	Oxidizer = ${11 * resourceCapacity / 20}
 	resourceCost = ${LiquidFuel * 0.8 + Oxidizer * 0.18}
-	//output = ${print(f"disp:{displacement} skin:{skin} storage:{storage} hab:{habspace} shell:{shell} structure:{structure}")}
-	//output = ${print(f"shield:{shield} mass:{mass} capacity:{capacity} resourceCapacity:{resourceCapacity}")}
-	//output = ${print(f"fun:{volumes['HabSkin'][1]} structure:{structure_mass} shield:{shield_mass}")}
+	output = ${print(f"disp:{displacement} skin:{skin} storage:{storage} hab:{habspace} shell:{shell} structure:{structure}")}
+	output = ${print(f"shield:{shield} mass:{mass} capacity:{capacity} resourceCapacity:{resourceCapacity}")}
+	output = ${print(f"fun:{volumes['HabSkin'][1]} structure:{structure_mass} shield:{shield_mass}")}
 }
 PART
 {
-	name = DiamondGridHabAdapter
+	name = DiamondQuadHub
 	module = Part
 	author = Bill Currie
 
@@ -42,11 +42,11 @@ PART
 	subcategory = 0
 	title = ${model}
 	manufacturer = Kairyuu Shipping
-	description = Luxury crew can.
+	description = Make your kerbal run less linear.
 
 	// attachment rules: stack, srfAttach, allowStack, allowSrfAttach, allowCollision
 	attachRules = 1,0,1,1,0
-	bulkheadProfiles = dgsize2, dgsize1
+	bulkheadProfiles = dgsize1, size1
 
 	mass = ${mass}
 	dragModelType = default
@@ -58,7 +58,7 @@ PART
 	breakingTorque = 200
 	maxTemp = 1700
 
-	CrewCapacity = 2
+	CrewCapacity = 1
 
 	MODULE {
 		name = ModuleColorChanger
@@ -91,41 +91,26 @@ PART
 			key = 0 1
 		}
 	}
-
-	RESOURCE {
-		name = LiquidFuel
-		amount = ${LiquidFuel}
-		maxAmount = ${LiquidFuel}
-	}
-	RESOURCE {
-		name = Oxidizer
-		amount = ${Oxidizer}
-		maxAmount = ${Oxidizer}
-	}
 }
 
-@PART[DiamondGridHabAdapter]:NEEDS[ModularStorageContainer] {
+@PART[DiamondQuadHub]:NEEDS[KIS] {
 	MODULE {
-		name = ModuleStorageContainer
-		availableVolume = ${capacity}
-		Container {
-			name = Resource
-			volume = ${capacity}
-			LiquidFuel = ${"%g, %g" % (LiquidFuel, LiquidFuel)}
-			Oxidizer = ${"%g, %g" % (Oxidizer, Oxidizer)}
-		}
+		name = ModuleKISInventory
+		maxVolume = ${int(capacity * 1000)}
+		externalAccess = true
+		internalAccess = true
+		slotsX = 4
+		slotsY = 4
+		slotSize = 50
+		itemIconResolution = 128
+		selfIconResolution = 128
+		openSndPath = KIS/Sounds/containerOpen
+		closeSndPath = KIS/Sounds/containerClose
+		defaultMoveSndPath = KIS/Sounds/itemMove
 	}
 }
 
-@PART[DiamondGridHabAdapter]:NEEDS[modularFuelTanks&!ModularStorageContainer] {
-	MODULE {
-		name = ModuleFuelTanks
-		volume = ${resourceCapacity}
-		type = Default
-	}
-}
-
-@PART[DiamondGridHabAdapter]:NEEDS[ConnectedLivingSpace] {
+@PART[DiamondQuadHub]:NEEDS[ConnectedLivingSpace] {
 	MODULE {
 		name = ModuleConnectedLivingSpace
 		passable = true

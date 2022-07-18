@@ -88,6 +88,7 @@ habunit_CFG_FILES := \
 	DGH-Crew-375.cfg			\
 	DGH-Dock-internal.cfg	\
 	DGH-Dock.cfg			\
+	DGH-QuadHub.cfg			\
 	$e
 
 habunit_CFG_IN_FILES = $(patsubst %.cfg, %.cfg.in, ${habunit_CFG_FILES})
@@ -108,6 +109,7 @@ habunit_MU_FILES := \
 	DGH-Crew-375.mu \
 	DGH-Dock-internal.mu \
 	DGH-Dock.mu \
+	DGH-QuadHub.mu			\
 	$e
 
 habunit_PNG_FILES := \
@@ -115,10 +117,15 @@ habunit_PNG_FILES := \
 	Hab-Adapter-diffuse.png \
 	Hab-Airlock-bump.png \
 	Hab-Airlock-diffuse.png \
+	Hab-Airlock-glow.png \
+	Hab-Hub-bump.png \
+	Hab-Hub-diffuse.png \
 	Hab-375-internal.png \
 	Hab-375-internal-bump.png \
 	Hab-375-bump.png \
 	Hab-375-diffuse.png \
+	Hab-375-glow.png \
+	Null-glow.png \
 	$e
 
 habunit_FILES := ${habunit_CFG_FILES} ${habunit_MU_FILES} ${habunit_PNG_FILES}
